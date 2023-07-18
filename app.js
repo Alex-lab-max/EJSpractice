@@ -1,16 +1,16 @@
-const express = require("express");
-const bodyParser = require("body-parser")
+import express from "express";
+import bodyParser from "body-parser";
 const app = express();
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.get("/", function(req, res){
-    res.sendFile(__dirname + "/index.html")
+    res.sendFile("index.html")
 });
 
 app.post("/", function(req, res){
     let name = req.body.name;
-    res.render(__dirname + "/index.ejs", {name: name})
-
+    res.render("index.ejs", {name: name})
+    console.log(__dirname)
 });
 
 app.listen(3000, ()=>{
